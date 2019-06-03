@@ -9,7 +9,7 @@ class Contact extends React.Component {
         
         // console.log(acf);
         return (
-            <div className="main">
+            <div className="main contact">
                 <div id="hero">
                
                     <h1>{pageData.title.rendered}</h1>

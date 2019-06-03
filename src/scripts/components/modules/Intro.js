@@ -4,8 +4,8 @@ class intro extends React.Component {
         // console.log(acf);
         return (
             
-               <div id="introduction">
-				  <div className="row">
+          <div id="introduction">
+				  <div className="row contain">
 				    <div className="">
 				    {acf.header_text.length > 0 &&
 				    	<h2>{acf.header_text}</h2>
