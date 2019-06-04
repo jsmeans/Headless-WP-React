@@ -1,6 +1,7 @@
 import Intro                from './modules/Intro.js';
 import ImageContent         from './modules/Image_Content.js';
 import ImageLinks         from './modules/ImageLinks.js';
+import ImageBlock         from './modules/ImageBlock.js';
 import ImageBackground      from './modules/Image_Background.js';
 import ContactModule        from './modules/ContactModule.js';
 
@@ -19,6 +20,8 @@ class Modular extends React.Component {
             module = <Intro modules={acf_objects} />;
           } else if (block == 'image_links'){
             module = <ImageLinks modules={acf_objects} />;
+          } else if (block == 'image_block'){
+            module = <ImageBlock modules={acf_objects} />;
           } else if (block == 'image_background'){
             module = <ImageBackground modules={acf_objects} />;
           }else if (block == 'image_content'){

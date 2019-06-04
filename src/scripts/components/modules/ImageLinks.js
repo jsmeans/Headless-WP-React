@@ -12,8 +12,10 @@ class ImageLinks extends React.Component {
         {acf.section_title.length > 0 &&
           <h2>{acf.section_title}</h2>
         }
-
-        <div className="block-grid contain">
+        {acf.section_description.length > 0 &&
+          <p className="description">{acf.section_description}</p>
+        }
+        <div className="block-grid">
 
           {imgBlocks.map(function(blocks, index) {
 
