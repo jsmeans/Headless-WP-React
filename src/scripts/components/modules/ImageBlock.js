@@ -9,7 +9,7 @@ class ImageBlock extends React.Component {
         
       <div className="flex-box contain">
         {acf.section_title.length > 0 &&
-            <h2>{acf.section_title}</h2>
+            <h3>{acf.section_title}</h3>
           }
         <div className="block">
           
@@ -38,7 +38,7 @@ class ImageBlock extends React.Component {
 
                 <div className="img" style={{backgroundImage: "url('" +  bg  +"')"}}> </div>
                 
-                <h3>{ title }</h3>
+                <h4>{ title }</h4>
   
               </section>
 
