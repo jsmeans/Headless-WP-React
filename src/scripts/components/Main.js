@@ -1,7 +1,7 @@
 import {render}             from 'react-dom';
 import DataActions          from 'flux/actions/DataActions.js';
-import DataStore from 'scripts/flux/stores/DataStore.js';
-
+import DataStore            from 'scripts/flux/stores/DataStore.js';
+import ReactGA              from 'react-ga';
 import Home                 from 'components/Home.js';
 import About                from 'components/About.js';
 import Work                 from 'components/Work.js';
@@ -14,6 +14,7 @@ import {
     Redirect,
     Switch
 } from 'react-router-dom';
+
 
 class Main extends React.Component {
 
@@ -48,7 +49,6 @@ class Main extends React.Component {
     });    
   }
 
-
   buildRoutes(data){
           
     return data.map((page, i) => {
@@ -62,6 +62,8 @@ class Main extends React.Component {
       )
     });    
   }
+
+
   
   render() {
       
