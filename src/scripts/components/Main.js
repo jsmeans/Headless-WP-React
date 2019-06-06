@@ -7,14 +7,20 @@ import About                from 'components/About.js';
 import Work                 from 'components/Work.js';
 import Contact              from 'components/Contact.js';
 import Header               from 'components/Header.js';
-
+import { createBrowserHistory } from 'history';
 import {
-    BrowserRouter as Router,
+    Router,
     Route,
     Redirect,
     Switch
 } from 'react-router-dom';
 
+const history = createBrowserHistory();
+
+history.listen(location => {
+  ReactGA.set({ page: location.pathname }); // Update the user's current page
+  ReactGA.pageview(location.pathname); // Record a pageview for the given page
+});
 
 class Main extends React.Component {
 
@@ -71,7 +77,7 @@ class Main extends React.Component {
     
     return (
 
-      <Router>
+      <Router history={history}>
           <div>
               <Header  handleMouseEnter={this._handleMouseEnter.bind(this)} handleMouseLeave={this._handleMouseLeave.bind(this)}/>
               <div style={{ display: (this.state.isHovering ? 'none' : 'block') }}>

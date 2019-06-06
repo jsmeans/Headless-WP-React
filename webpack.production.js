@@ -2,9 +2,24 @@
 var webpack = require('webpack');
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 module.exports = {	
 	devtool: 'source-map',
+  optimization: {
+    minimizer: [
+      // we specify a custom UglifyJsPlugin here to get source maps in production
+      new UglifyJsPlugin({
+        cache: true,
+        parallel: true,
+        uglifyOptions: {
+          compress: true,
+          ecma: 6,
+          mangle: true
+        },
+        sourceMap: false
+      })
+    ]
+  },
 	devServer: {
 		historyApiFallback: true, // This will make the server understand "/some-link" routs instead of "/#/some-link"
 	},
@@ -25,52 +40,56 @@ module.exports = {
 		], // Folders where Webpack is going to look for files to bundle together
 		extensions: ['.jsx', '.js'] // Extensions that Webpack is going to expect
 	},
+  
 	module: {
 		// Loaders allow you to preprocess files as you require() or “load” them. 
 		// Loaders are kind of like “tasks” in other build tools, and provide a powerful way to handle frontend build steps.
-		loaders: [
-			{
-				test: /\.jsx?$/, // Here we're going to use JS for react components but including JSX in case this extension is preferable
-				include: [
-					path.resolve(__dirname, "src"),
-				],
-				loader: ['react-hot-loader']
-			},
-			{
-				loader: "babel-loader",
+		rules: [
+      {
+        test: /\.jsx?$/, // Here we're going to use JS for react components but including JSX in case this extension is preferable
+        include: [
+          path.resolve(__dirname, "src"),
+        ],
+        use: ['react-hot-loader/webpack']
+      },
+      { use:[{
+        loader: "babel-loader",
+        query: {
+          plugins: ['@babel/transform-runtime','@babel/plugin-proposal-class-properties'],
+          presets: ['@babel/preset-env', '@babel/react'],
+        }
+      }],
+        
 
-				// Skip any files outside of your project's `src` directory
-				include: [
-					path.resolve(__dirname, "src"),
-				],
+        // Skip any files outside of your project's `src` directory
+        include: [
+          path.resolve(__dirname, "src"),
+        ],
 
-				// Only run `.js` and `.jsx` files through Babel
-				test: /\.jsx?$/,
+        // Only run `.js` and `.jsx` files through Babel
+        test: /\.jsx?$/,
 
-				// Options to configure babel with
-				query: {
-					plugins: ['transform-runtime'],
-					presets: ['es2015', 'stage-0', 'react'],
-				}
-			},
-			{
-		        test: /\.scss$/,
+        // Options to configure babel with
+        
+      },
+      {
+            test: /\.scss$/,
 
-		          use: [{
+              use: [{
 
-		            loader: "style-loader"
+                loader: "style-loader"
 
-		          }, {
+              }, {
 
-		            loader: "css-loader"
+                loader: "css-loader"
 
-		          }, {
+              }, {
 
-		            loader: "sass-loader"
+                loader: "sass-loader"
 
-		          }]
-		    }
-		]
+              }]
+        }
+    ]
 	},
 	plugins: [
 		new webpack.NoEmitOnErrorsPlugin(), // Webpack will let you know if there are any errors
@@ -87,12 +106,5 @@ module.exports = {
 	        template: './src/index.html',
 	        hash: true
 	    }),
-
-	    new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false
-            },
-            sourceMap: true
-        }),
 	]
 }

@@ -31,16 +31,22 @@ module.exports = {
 	module: {
 		// Loaders allow you to preprocess files as you require() or “load” them. 
 		// Loaders are kind of like “tasks” in other build tools, and provide a powerful way to handle frontend build steps.
-		loaders: [
+		rules: [
 			{
 				test: /\.jsx?$/, // Here we're going to use JS for react components but including JSX in case this extension is preferable
 				include: [
 					path.resolve(__dirname, "src"),
 				],
-				loader: ['react-hot-loader']
+				use: ['react-hot-loader/webpack']
 			},
-			{
-				loader: "babel-loader",
+			{ use:[{
+        loader: "babel-loader",
+        query: {
+          plugins: ['@babel/transform-runtime','@babel/plugin-proposal-class-properties'],
+          presets: ['@babel/preset-env', '@babel/react'],
+        }
+      }],
+				
 
 				// Skip any files outside of your project's `src` directory
 				include: [
@@ -51,10 +57,7 @@ module.exports = {
 				test: /\.jsx?$/,
 
 				// Options to configure babel with
-				query: {
-					plugins: ['transform-runtime'],
-					presets: ['es2015', 'stage-0', 'react'],
-				}
+				
 			},
 			{
 		        test: /\.scss$/,
