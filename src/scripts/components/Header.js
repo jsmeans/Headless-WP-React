@@ -1,10 +1,10 @@
-import {Link} from 'react-router-dom';
-import DataStore from 'scripts/flux/stores/DataStore.js';
-import Home      from 'scripts/components/Home.js';
-import About      from 'scripts/components/About.js';
-import Work      from 'scripts/components/Work.js';
-import Contact      from 'scripts/components/Contact.js';
-import Nav          from 'scripts/components/Nav.js'
+import {Link}             from 'react-router-dom';
+import DataStore          from 'scripts/flux/stores/DataStore.js';
+import Home               from './Home';
+import About              from './About';
+import Work               from './Work';
+import Contact            from './Contact';
+import Nav                from './Nav'
 
 
 

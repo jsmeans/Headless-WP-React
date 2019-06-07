@@ -1,7 +1,7 @@
 import {render}             from 'react-dom';
 import DataActions          from 'flux/actions/DataActions.js';
-import DataStore from 'scripts/flux/stores/DataStore.js';
-import './style.scss';
+import DataStore            from 'scripts/flux/stores/DataStore.js';
+import                           './style.scss';
 import Home                 from 'components/Home.js';
 import About                from 'components/About.js';
 import Work                 from 'components/Work.js';
@@ -9,10 +9,10 @@ import Contact              from 'components/Contact.js';
 import Header               from 'components/Header.js';
 
 import {
-    BrowserRouter as Router,
-    Route,
-    Redirect,
-    Switch
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Switch
 } from 'react-router-dom';
 
 class Router extends React.Component {

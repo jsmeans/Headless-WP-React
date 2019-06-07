@@ -16,7 +16,7 @@ module.exports = {
           ecma: 6,
           mangle: true
         },
-        sourceMap: false
+        sourceMap: true
       })
     ]
   },

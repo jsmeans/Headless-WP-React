@@ -1,19 +1,19 @@
-import {render}             from 'react-dom';
-import DataActions          from 'flux/actions/DataActions.js';
-import DataStore            from 'scripts/flux/stores/DataStore.js';
-import ReactGA              from 'react-ga';
-import Home                 from 'components/Home.js';
-import About                from 'components/About.js';
-import Work                 from 'components/Work.js';
-import Contact              from 'components/Contact.js';
-import Header               from 'components/Header.js';
+import {render}                 from 'react-dom';
+import DataActions              from 'flux/actions/DataActions.js';
+import DataStore                from 'scripts/flux/stores/DataStore.js';
+import ReactGA                  from 'react-ga';
+import Home                     from 'components/Home.js';
+import About                    from 'components/About.js';
+import Work                     from 'components/Work.js';
+import Contact                  from 'components/Contact.js';
+import Header                   from 'components/Header.js';
 import { createBrowserHistory } from 'history';
 import {
     Router,
     Route,
     Redirect,
     Switch
-} from 'react-router-dom';
+}                               from 'react-router-dom';
 
 const history = createBrowserHistory();
 
@@ -45,13 +45,13 @@ class Main extends React.Component {
       
   _handleMouseEnter(){
     this.setState({
-        isHovering: true,
+      isHovering: true,
     });    
   }
 
   _handleMouseLeave(){
     this.setState({
-        isHovering: false,
+      isHovering: false,
     });    
   }
 
@@ -68,9 +68,7 @@ class Main extends React.Component {
       )
     });    
   }
-
-
-  
+ 
   render() {
       
     let response = DataStore.getAllPages();
@@ -78,18 +76,20 @@ class Main extends React.Component {
     return (
 
       <Router history={history}>
-          <div>
-              <Header  handleMouseEnter={this._handleMouseEnter.bind(this)} handleMouseLeave={this._handleMouseLeave.bind(this)}/>
-              <div style={{ display: (this.state.isHovering ? 'none' : 'block') }}>
-              <Switch>
-                  <Route path="/" component={ Home } exact />
-                  {this.buildRoutes(response)}
-                  <Route render={() => { return <Redirect to="/" /> }} />
-              </Switch>
-              </div> 
-          </div>
+        <div>
+          <Header  
+            handleMouseEnter={this._handleMouseEnter.bind(this)} 
+            handleMouseLeave={this._handleMouseLeave.bind(this)} 
+          />
+          <div style={{ display: (this.state.isHovering ? 'none' : 'block') }}>
+            <Switch>
+              <Route path="/" component={ Home } exact />
+              {this.buildRoutes(response)}
+              <Route render={() => { return <Redirect to="/" /> }} />
+            </Switch>
+          </div> 
+        </div>
       </Router>
-
     );
   }
 }
