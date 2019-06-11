@@ -1,0 +1,144 @@
+// Universal
+// ======================================================
+body {
+  background-color: white;
+  font-family: "Roboto";
+  font-weight: 900;
+  font-size: 18px;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5 {
+  // font-weight: 700
+  // font-weight: bold
+  line-height: 1.2;
+
+  // text-transform: uppercase
+  padding: 0px;
+  margin-bottom: 1rem;
+  color: black;
+}
+
+h1 {
+  font-size: 60px;
+
+  @media #{$phone} {
+    font-size: 36px;
+  }
+}
+
+h2 {
+  font-size: 36px;
+
+  @media #{$phone} {
+    font-size: 24px;
+  }
+}
+
+h3 {
+  font-size: 24px;
+
+  @media #{$phone} {
+    font-size: 21px;
+  }
+}
+
+h4 {
+  font-size: 21px;
+
+  @media #{$phone} {
+    font-size: 18px;
+  }
+}
+
+h5 {
+  font-size: 18px;
+
+  @media #{$phone} {
+    font-size: 16px;
+  }
+}
+
+.eyebrow {
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+  color: $primary;
+}
+
+p {
+  font-size: 18px;
+  font-weight: 300;
+  font-weight: normal;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  color: $grey80;
+
+  @media #{$phone} {
+    font-size: 16px;
+  }
+
+  em {
+    font-style: italic;
+  }
+
+  strong {
+    font-weight: 700;
+    font-weight: bold;
+  }
+}
+
+a {
+  // border-bottom: 2px solid $primary
+  color: $primary;
+
+  &:hover {
+    color: black;
+  }
+}
+
+.button {
+  font-size: 18px;
+  margin: 0px;
+  padding: 0.5rem 1.5rem;
+  background-color: transparent;
+  text-transform: uppercase;
+  text-decoration: none;
+  outline: medium none;
+  border-style: solid;
+  border-width: 18px;
+  &:hover {
+    background-color: transparent;
+  }
+}
+
+hr {
+  border: 0px;
+  border-bottom: 1px solid $grey40;
+  margin-top: 0px;
+  margin-bottom: 1.5rem;
+  height: 0px;
+}
+
+.column-block {
+  @media #{$phone} {
+    margin-bottom: 0.9375em;
+  }
+}
+
+.icon-arrow-left {
+  position: absolute;
+  padding-left: 5px;
+  font-size: 45px;
+  margin-bottom: -100px;
+}
+img{
+  max-width: 100%;
+  height:auto;
+}
+.contain{
+  max-width: 60em;
+  margin: 0 auto;
+}

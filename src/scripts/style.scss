@@ -1,0 +1,162 @@
+/* Theme name: Portfolio
+ * Author: Jarod Means
+ * Version: 1.0
+ * Theme URI: http://studio-42.com
+ */
+
+// Set-Up
+// ======================================================
+
+
+// Charset + Viewport
+@charset "UTF-8";
+
+@-ms-viewport {
+  width: device-width;
+}
+
+@viewport {
+  width: device-width;
+}
+
+// Colors
+// ======================================================
+$primary: #29509a;
+$b80: #5573ae;
+$b60: #7f96c2;
+$b40: #a9b9d7;
+$b20: #d5dceb;
+
+$black: #353025;
+$grey80: #5e5952;
+$grey60: #86847e;
+$grey40: #b0aea8;
+$grey20: #d6d6d4;
+
+$red: #e63343;
+
+$green: #5fa745;
+
+// Fonts
+//=========================================================
+
+
+
+// Media Queries
+// ======================================================
+$phone: "only screen and (max-width : 767px)";
+$phoneSmall: "only screen and (max-width : 640px)";
+$pad: "only screen and (max-width : 1024px)";
+$portrait: "only screen and (max-width : 768px)";
+$sdesktop: "only screen and (max-width : 1224px)";
+
+// Font Reference
+// ======================================================
+$normal: "ITC American Typewriter W01";
+$bold: "ITC American TypewriterΓäó W01 Bold";
+
+
+// Imports
+// =======================================================
+
+@import '/style/universal.scss';
+@import '/style/nav.scss';
+@import '/style/modular.scss';
+@import '/style/page.scss';
+
+
+
+
+// Adjacents
+// ======================================================
+#hero + #page {
+  padding-top: 1.5em;
+
+  @media #{$phone} {
+    padding-top: 0.9375em;
+  }
+}
+
+.module-vert + section {
+  padding-top: 60px;
+
+  @media #{$phone} {
+    padding-bottom: 20px;
+  }
+}
+
+// Sections
+// ======================================================
+section.social {
+  width: 100%;
+  padding: 60px auto;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: $primary;
+}
+
+// Footer
+// ======================================================
+footer {
+  width: 100%;
+  height: auto;
+  padding: 60px 0px 100px 0px;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  #social {
+    text-align: center;
+    padding-bottom: 20px;
+    padding-top: 20px;
+
+    a {
+      color: white;
+      font-size: 30px;
+      margin-left: 20px;
+    }
+
+    a:first-child {
+      margin-left: 0;
+    }
+  }
+
+  ul {
+    max-width: 90rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-bottom: 10px;
+
+    li {
+      display: inline;
+
+      a {
+        display: inline-block;
+        text-align: center;
+        padding: 10px 20px;
+        border: 0px;
+        color: white;
+        text-transform: uppercase;
+        font-size: 21px;
+        font-weight: 500;
+        letter-spacing: 1px;
+
+        &:hover {
+          color: white;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  p {
+    max-width: 90rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    line-height: 1;
+    margin-bottom: 20px;
+    color: rgba(white, 0.5);
+  }
+}
