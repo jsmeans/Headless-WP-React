@@ -40,7 +40,7 @@ class Main extends React.Component {
   templates = {
     'about': About,
     'contact': Contact,
-    'work': Work
+    'work': Work,
   }
       
   _handleMouseEnter(){
